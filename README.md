@@ -1,6 +1,6 @@
 # Voting App
 
-The purpose of the project is to build a voting app similiar to [Example](https://voting-app.freecodecamp.rocks/)
+The purpose of the project is to build a voting app similiar to [Example](https://voting-app.freecodecamp.rocks/).
 
 ## UX
 
@@ -23,6 +23,10 @@ As an authenticated or unauthenticated user, you can see and vote on everyone's 
 As an authenticated or unauthenticated user, you can see the results of polls in chart form.  (This can be implemented using Chart.js or Google Charts.)
 
 As an authenticated user, if you don't like the options on a poll, you can create a new option.
+
+## Features
+
+To add, view or delete polls.
 
 ## Credits
 

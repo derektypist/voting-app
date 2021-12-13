@@ -24,5 +24,14 @@ As an authenticated or unauthenticated user, you can see the results of polls in
 
 As an authenticated user, if you don't like the options on a poll, you can create a new option.
 
+## Credits
 
+### Content
+
+Taken from [Tri Vi](https://github.com/triminhvi).  Accessed from 13 December 2021.
+
+### Acknowledgements
+
+- [Tri Vi - GitHub Repository](https://github.com/triminhvi/Voting_App)
+- [FreeCodeCamp](https://www.freecodecamp.org)
 

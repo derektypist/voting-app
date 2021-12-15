@@ -1,0 +1,24 @@
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+let saltRounds = 10;
+
+// User Schema
+const UserSchema = mongoose.Schema({
+  local: {
+    username: String,
+    password: String
+  }
+});
+
+// Apply Hashing Password
+let salt = bcrypt.genSaltSync(saltRounds);
+UserSchema.methods.genHash = function(password) {
+  return bcrypt.hashSync(password, salt);
+}
+
+// Compare Input Password with Database Password
+UserSchema.methods.validPassword = function(password) {
+  return bcrypt.compareSync(password, this.local.password);
+};
+
+const User = mongoose.model('user', UserSchema);

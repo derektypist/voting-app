@@ -22,3 +22,27 @@ UserSchema.methods.validPassword = function(password) {
 };
 
 const User = mongoose.model('user', UserSchema);
+
+// Poll Schema
+const PollSchema = mongoose.Schema({
+  createdBy: String,
+  createdAt: {
+    type: Date,
+    default: Date.now
+  },
+  title: String,
+  answer: [{
+    title: String,
+    number: Number
+  }],
+  voteBy: [{
+    userID: String,
+    isVoted: Boolean
+  }]
+});
+
+const Poll = mongoose.model('poll', PollSchema);
+
+// Export Modules
+module.exports.User = User;
+module.exports.Poll = Poll;

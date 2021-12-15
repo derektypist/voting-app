@@ -24,6 +24,12 @@ As an authenticated or unauthenticated user, you can see the results of polls in
 
 As an authenticated user, if you don't like the options on a poll, you can create a new option.
 
+** Information Architecture **
+
+User consists of the object local, which consists of username and password (both strings).
+
+Poll consists of createdBy (String), createdAt (Date - currently at present date), title (String), answer (Object Array) and voteBy (Object Array).  Inside answer, there is title (String) and number (Number).  Inside voteBy, there is userID (String) and isVoted (Boolean).
+
 ## Features
 
 To add, view or delete polls.

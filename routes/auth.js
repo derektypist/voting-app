@@ -11,8 +11,29 @@ router.get('/signup',function(req,res) {
 });
 
 router.post('/signup', passport.authenticate('local-signup', {
-  successRedirect: 'http://localhost:3000',
+  successRedirect: 'http://localhost:3000/',
   failureRedirect: '/auth/signup',
   failureFlash: true
 }));
 
+// Login
+router.get('/login', function(req,res) {
+  res.render('login', {
+    title: "Login",
+    message: req.flash('loginMessage');
+  });
+});
+
+router.post('/login', passport.authenticate('local-login', {
+  successRedirect: 'http://localhost:3000/profile',
+  failureRedirect: '/auth/login',
+  failureFlash: true
+}));
+
+// Logout
+router.get('/logout', function(req,res) {
+  req.logout();
+  res.redirect('/');
+});
+
+module.exports = router;

@@ -27,6 +27,53 @@ router.get('/addpoll', isLoggedIn, function(req, res) {
   });
 });
 
+router.post('/addpoll', isLoggedIn, function(req, res) {
+  let title = req.body.title;
+  let answer = req.body.answer;
+  let createdUser = req.user._id;
+  Poll.findOne({"title": title}, function(err, poll) {
+    if (err) {
+      throw (error);
+      return;
+    }
+    if (poll) {
+      // This poll is already existed
+      console.log("This question is already existed");
+      req.flash('pollMessage','Poll is already existed');
+      res.redirect('/profile/addpoll');
+    } else {
+      let theNewPoll = new Poll();
+      theNewPoll.createdBy = createdUser;
+      theNewPoll.title = title;
+      // For single option answer
+      if (typeof answer === 'string') {
+        theNewPoll.answer.push({
+          title: answer,
+          number: 0
+        });
+      } else {
+        // Multiple options answer
+        answer.forEach(function(item) {
+          theNewPoll.answer.push({
+            title: item,
+            number: 0
+          });
+        });
+      }
+      theNewPoll.voteBy.push({
+        userID: req.user._id,
+        isVoted: false
+      });
+
+      theNewPoll.save(function(err) {
+        if (err) {
+          console.log(err);
+        }
+        res.redirect('/profile');
+      });
+    }
+  });
+});
 
 
 

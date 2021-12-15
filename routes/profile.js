@@ -75,7 +75,20 @@ router.post('/addpoll', isLoggedIn, function(req, res) {
   });
 });
 
-
+router.get('/:id', isLoggedIn, function(req, res) {
+  let id = req.params.id;
+  Poll.findOne({"_id":id}, function(err,poll) {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    res.render('singlePoll', {
+      title: "Single Poll",
+      poll: poll,
+      message: req.flash('pollMessage')
+    });
+  });
+});
 
 
 // Login Function

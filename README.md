@@ -34,6 +34,10 @@ Poll consists of createdBy (String), createdAt (Date - currently at present date
 
 To add, view or delete polls.
 
+## Technologies
+
+This project uses Bcrypt, Mongoose, Express
+
 ## Credits
 
 ### Content

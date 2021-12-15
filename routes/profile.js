@@ -20,6 +20,15 @@ router.get('/', isLoggedIn, function(req, res) {
   });
 });
 
+router.get('/addpoll', isLoggedIn, function(req, res) {
+  res.render('addnewpoll', {
+    title: "Add Poll",
+    message: req.flash('pollMessage')
+  });
+});
+
+
+
 
 
 // Login Function

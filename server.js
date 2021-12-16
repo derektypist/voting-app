@@ -45,3 +45,40 @@ const Poll = require('./models').Poll;
 // Passport Configuration
 require('./config/passport.js')(passport);
 
+// App
+const auth = require('./routes/auth');
+app.use('/auth',auth);
+const profile = require('./routes/profile');
+app.use('/profile',profile);
+
+// Route - Unauthenticated Users
+app.get('/',function(req, res) {
+  Poll.find({}, function(err, polls) {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    res.render('index', {
+      title: "Home Page",
+      polls: polls,
+      message: req.flash('pollMessage')
+    });
+  });
+});
+
+// Get Single Vote
+app.get('/:id', function(req, res) {
+  let id = req.params.id;
+  Poll.findOne({"_id":id}, function(err, poll) {
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    res.render('singlepoll', {
+      title: "Single Poll",
+      poll: poll,
+      message: req.flash('pollMessage')
+    });
+  });
+});

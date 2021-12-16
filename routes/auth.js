@@ -20,7 +20,7 @@ router.post('/signup', passport.authenticate('local-signup', {
 router.get('/login', function(req,res) {
   res.render('login', {
     title: "Login",
-    message: req.flash('loginMessage');
+    message: req.flash('loginMessage')
   });
 });
 

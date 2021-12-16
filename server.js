@@ -42,4 +42,6 @@ db.on('open', function() {
 const User = require('./models').User;
 const Poll = require('./models').Poll;
 
+// Passport Configuration
+require('./config/passport.js')(passport);
 

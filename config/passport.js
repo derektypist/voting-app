@@ -14,5 +14,33 @@ module.exports = function(passport) {
     });
   });
 
+  // Signup Strategy
+  passport.use('local-signup', new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'password',
+    passReqToCallback: true
+  }, function(req,email,password,done) {
+    process.nextTick(function() {
+      User.findOne({'local-username':email}, function(err,user) {
+        if (err) {
+          return done(err);
+        }
+        if (user) {
+          return done(null,false,req.flash('signupMessage','That email has already been taken'));
+        } else {
+          let theNewUser = new User();
+          theNewUser.local.username = email;
+          theNewUser.local.password = theNewUser.genHash(password);
+
+          theNewUser.save(function(err) {
+            if (err) {
+              throw err;
+            }
+            return done(null, theNewUser);
+          });
+        }
+      });
+    });
+  }));
   
 };

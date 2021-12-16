@@ -11,6 +11,7 @@ const app = express();
 
 // App Configuration
 app.set('view engine','pug');
+app.set('views','./views');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());

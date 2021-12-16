@@ -90,6 +90,45 @@ router.get('/:id', isLoggedIn, function(req, res) {
   });
 });
 
+router.post('/:id', isLoggedIn, function(req, res) {
+  let id = req.params.id;
+  let index = req.body.optionsRadios;
+  Poll.findOne({"_id":id}, function(err,poll) {
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    // If person has already voted
+    for (let i=0;i<poll.voteBy.length; i++) {
+      let checkUserID = poll.voteBy[i].userID;
+      let isVoted = poll.voteBy[i].isVoted;
+      if ((checkUserID == req.user._id) && (isVoted == true)) {
+        req.flash('pollMessage','You have already voted');
+        res.redirect('/profile/' + id);
+        return;
+      }
+    }
+
+    // If person is not voted
+    poll.answer[index].number++;
+    poll.voteBy.push({
+      userID: req.user._id,
+      isVoted: true
+    });
+
+    poll.save(function(err) {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      res.redirect('/profile/' + id);
+    });
+  });
+});
+
+
+
 
 // Login Function
 function isLoggedIn(req, res, next) {

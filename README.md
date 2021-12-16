@@ -36,7 +36,7 @@ To add, view or delete polls.
 
 ## Technologies
 
-This project uses Bcrypt, Mongoose, Express
+This project uses Bcrypt, Mongoose, Express.  Uses iFrame for the Share Button on Facebook.
 
 ## Credits
 
@@ -48,4 +48,5 @@ Taken from [Tri Vi](https://github.com/triminhvi).  Accessed from 13 December 20
 
 - [Tri Vi - GitHub Repository](https://github.com/triminhvi/Voting_App)
 - [FreeCodeCamp](https://www.freecodecamp.org)
+- [Facebook for Developers - Share Button](https://developers.facebook.com/docs/plugins/share-button)
 

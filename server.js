@@ -29,3 +29,17 @@ app.use(function(req,res,next) {
   next();
 });
 
+// DB
+let db = mongoose.connection;
+db.on('error', function(err) {
+  console.log(err);
+});
+
+db.on('open', function() {
+  console.log('Connected to DB');
+});
+
+const User = require('./models').User;
+const Poll = require('./models').Poll;
+
+

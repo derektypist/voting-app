@@ -127,7 +127,22 @@ router.post('/:id', isLoggedIn, function(req, res) {
   });
 });
 
-
+router.get('/delete/:id', function(req, res) {
+  let id = req.params.id;
+  Poll.findById(id, function(err,poll) {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    Poll.remove(poll, function(err) {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      res.redirect('/profile');
+    });
+  });
+});
 
 
 // Login Function

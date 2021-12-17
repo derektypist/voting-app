@@ -28,6 +28,8 @@ As an authenticated user, if you don't like the options on a poll, you can creat
 
 User consists of the object local, which consists of username and password (both strings).
 
+In the form, username (email) is an email and password is the password.
+
 Poll consists of createdBy (String), createdAt (Date - currently at present date), title (String), answer (Object Array) and voteBy (Object Array).  Inside answer, there is title (String) and number (Number).  Inside voteBy, there is userID (String) and isVoted (Boolean).
 
 ## Features
@@ -42,11 +44,13 @@ This project uses Bcrypt, Mongoose, Express.  Uses iFrame for the Share Button o
 
 ### Content
 
-Taken from [Tri Vi](https://github.com/triminhvi).  Accessed from 13 December 2021.
+Taken from [Tri Vi](https://github.com/triminhvi).  Accessed from 13 December 2021.  Code for Share Button was taken from [Facebook](https://developers.facebook.com/docs/plugins/share-button) (accessed on 16 December 2021).
 
 ### Acknowledgements
 
 - [Tri Vi - GitHub Repository](https://github.com/triminhvi/Voting_App)
 - [FreeCodeCamp](https://www.freecodecamp.org)
 - [Facebook for Developers - Share Button](https://developers.facebook.com/docs/plugins/share-button)
+- [Bootstrap](https://www.getbootstrap.com)
+- [Passport](https://www.passportjs.org)
 

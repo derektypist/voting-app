@@ -16,3 +16,9 @@ body {
 iframe:hover {
   background-color: darkblue;
 }
+
+/* Jumbotron */
+.jumbotron {
+  background-color: lightblue;
+  padding-top: 1rem;
+}

@@ -51,25 +51,25 @@ html(lang='en')
     if (message.length > 0)
       article(class='alert alert-warning mt-2 container-fluid' role='alert')
         strong #{message}
-    // Set Title with Icon and Buttons
-    article(class='jumbotron jumbotron-fluid text-center')
-      h1(class='display-3') Welcome to Voting Application &nbsp;
-        i(class='fas fa-poll')
-      p(class='lead') This is a fullstack voting application.
-      if (user)
-        // If there is a user
-        p(class='lead')
-          a(class='btn btn-success btn-lg' href='/profile' role='button') Dashboard
-      else
-        // If there is no user
-        p(class='lead d-grid gap-2 d-flex justify-content-center')
-          a(class='btn btn-primary btn-lg' href='/auth/signup' role='button') Sign Up
-          a(class='btn btn-primary btn-lg' href='/auth/login' role='button') Log In
-    // Create Polls Table
+    // Create Poll Details
     article(class='container-fluid' id='polltableforeveryone')
-      h2 Polls Table
-      table(class='table table-hover')
-        thead(class='thead-inverse')
+      h2 Poll Detail &nbsp;
+        i(class='fas fa-poll')
+      article(class='row')
+        article(class='col-md-6')
+          article(class='poll mt-4')
+            if (user)
+              // If there is a user
+              - let pollID = poll._id
+              form(action='/profile/' + pollID method='post')
+                fieldset(class='mb-3')
+                  legend #{poll.title}
+                  each item,i in poll.answer
+                    article(class='form-check')
+                      label(class='form-check-label')
+                        - let pollAnswerAnswer = poll.answer[i].answer
+                        input(type='radio' class='form-check-input' name='optionsRadios' id=pollAnswerAnswer value=i) #{poll.answer[i].title}
+                input(type='submit' class='btn btn-info' id='voteBtn' value='Vote')
           tr
             th #
             th Poll Title

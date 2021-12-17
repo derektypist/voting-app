@@ -5,3 +5,9 @@
 body {
   font-family: "Roboto", Arial, Verdana, sans-serif;
 }
+
+/* Navigation */
+.nav-link:hover {
+  background-color: purple;
+  color: lightyellow;
+}

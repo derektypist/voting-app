@@ -24,7 +24,11 @@ iframe:hover {
   padding-bottom: 0.5rem;
 }
 
-/* Polls Table */
+/* Polls Tables */
 #polltableforeveryone {
   padding-top: 0.5rem;
+}
+
+#polltable {
+  padding-top: 0.4rem;
 }

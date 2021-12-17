@@ -47,33 +47,14 @@ html(lang='en')
               li(class='nav-item active')
                 li(class='nav-item active')
                   iframe(src='https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fvoting-app.ddxps46.repl.co%2F&layout=button_count&size=small&width=96&height=35&appId' width='96' height='35' style='border:none;overflow:hidden;padding-top:10px;' scrolling='no' frameborder='0' allowfullscreen='true' allow='autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share')
-    // If there are messages
-    if (message.length > 0)
-      article(class='alert alert-warning mt-2 container-fluid' role='alert')
-        strong #{message}
-    // Set Title with Icon and Buttons
-    article(class='jumbotron jumbotron-fluid text-center')
-      h1(class='display-3') Welcome to Voting Application &nbsp;
-        i(class='fas fa-poll')
-      p(class='lead') This is a fullstack voting application.
-      if (user)
-        // If there is a user
-        p(class='lead')
-          a(class='btn btn-success btn-lg' href='/profile' role='button') Dashboard
-      else
-        // If there is no user
-        p(class='lead d-grid gap-2 d-flex justify-content-center')
-          a(class='btn btn-primary btn-lg' href='/auth/signup' role='button') Sign Up
-          a(class='btn btn-primary btn-lg' href='/auth/login' role='button') Log In
-    // Create Polls Table
-    article(class='container-fluid' id='polltableforeveryone')
-      h2 Polls Table
-      table(class='table table-hover')
+    article(class='container-fluid mt-4')
+      h2 My Polls
+      table(class='table')
         thead(class='thead-inverse')
           tr
             th #
             th Poll Title
-            th(class='text-center') Vote
+            th Modification
         tbody
           each poll,i in polls
             tr
@@ -81,8 +62,8 @@ html(lang='en')
               - let pollID = poll._id
               - let pollTitle = poll.title
               td
-                a(href='/' + pollID title='Go to ' + pollTitle) #{poll.title}
-              td(class='text-center')
-                a(href='/' + pollID class='btn btn-primary') Vote
+                a(href='/profile/mypoll/' + pollID title='Go to ' + pollTitle) #{poll.title}
+              td
+                a(href='/profile/mypoll/' + pollID class='btn btn-danger') Delete
     // Load Script
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js')

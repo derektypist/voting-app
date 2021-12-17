@@ -72,8 +72,9 @@ html(lang='en')
               - let pollID = poll._id
               - let pollTitle = poll.title
               td
-                a(href='/' + pollID title='Go to ' + pollTitle) #{poll.title}
-              td(class='text-center')
-                a(href='/' + pollID class='btn btn-primary') Vote
+                a(href='/profile/' + pollID title='Go to ' + pollTitle) #{poll.title}
+              td #{poll.createdAt}
+              td
+                a(href='/profile/delete/' + pollID class='btn btn-danger') Delete
     // Load Script
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js')

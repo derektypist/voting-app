@@ -23,3 +23,8 @@ iframe:hover {
   padding-top: 1rem;
   padding-bottom: 0.5rem;
 }
+
+/* Polls Table */
+#polltableforeveryone {
+  padding-top: 0.5rem;
+}

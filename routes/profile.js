@@ -75,6 +75,19 @@ router.post('/addpoll', isLoggedIn, function(req, res) {
   });
 });
 
+router.get('/mypoll', isLoggedIn, function(req, res) {
+  Poll.find({}, function(err,polls) {
+    if (err) {
+      throw err;
+      return;
+    }
+    res.render('mypoll', {
+      title: "My Poll",
+      polls: polls
+    });
+  });
+});
+
 router.get('/:id', isLoggedIn, function(req, res) {
   let id = req.params.id;
   Poll.findOne({"_id":id}, function(err,poll) {
@@ -82,7 +95,7 @@ router.get('/:id', isLoggedIn, function(req, res) {
       console.log(err);
       return;
     }
-    res.render('singlePoll', {
+    res.render('singlepoll', {
       title: "Single Poll",
       poll: poll,
       message: req.flash('pollMessage')

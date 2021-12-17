@@ -40,6 +40,14 @@ To add, view or delete polls.
 
 This project uses Bcrypt, Mongoose, Express.  Uses iFrame for the Share Button on Facebook.
 
+## Testing
+
+Make sure all the user stories have been met.
+
+## Deployment
+
+This project is on [REPL](https://voting-app.ddxps46.repl.co)
+
 ## Credits
 
 ### Content

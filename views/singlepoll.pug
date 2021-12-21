@@ -52,7 +52,7 @@ html(lang='en')
       article(class='alert alert-warning mt-2 container-fluid' role='alert')
         strong #{message}
     // Create Poll Details
-    article(class='container-fluid' id='polltableforeveryone')
+    article(class='container-fluid mt-2')
       h2 Poll Detail &nbsp;
         i(class='fas fa-poll')
       article(class='row')
@@ -70,19 +70,18 @@ html(lang='en')
                         - let pollAnswerAnswer = poll.answer[i].answer
                         input(type='radio' class='form-check-input' name='optionsRadios' id=pollAnswerAnswer value=i) #{poll.answer[i].title}
                 input(type='submit' class='btn btn-info' id='voteBtn' value='Vote')
-          tr
-            th #
-            th Poll Title
-            th(class='text-center') Vote
-        tbody
-          each poll,i in polls
-            tr
-              th(scope='row') #{i+1}
+            else
+              // If no user
               - let pollID = poll._id
-              - let pollTitle = poll.title
-              td
-                a(href='/' + pollID title='Go to ' + pollTitle) #{poll.title}
-              td(class='text-center')
-                a(href='/' + pollID class='btn btn-primary') Vote
+              form(action='/' + pollID method='post')
+                fieldset(class='mb-3')
+                  legend #{poll.title}
+                  each item,i in poll.answer
+                    article(class='form-check')
+                      label(class='form-check-label')
+                        - let pollAnswerAnswer = poll.answer[i].answer
+                        input(type='radio' class='form-check-input' name='optionsRadios' id=pollAnswerAnswer value=i) #{poll.answer[i].title}
+                input(type='submit' class='btn btn-info' id='voteBtn' value='Vote' disabled)
+           
     // Load Script
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js')

@@ -82,6 +82,8 @@ html(lang='en')
                         - let pollAnswerAnswer = poll.answer[i].answer
                         input(type='radio' class='form-check-input' name='optionsRadios' id=pollAnswerAnswer value=i) #{poll.answer[i].title}
                 input(type='submit' class='btn btn-info' id='voteBtn' value='Vote' disabled)
-           
+        article(class='col-md-6 text-center')
+          // Create Chart
+          article(id='barchart' chart='chart' style='width:100%; height:400px;')
     // Load Script
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js')

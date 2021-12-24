@@ -84,7 +84,7 @@ html(lang='en')
                 input(type='submit' class='btn btn-info' id='voteBtn' value='Vote' disabled)
         article(class='col-md-6 text-center')
           // Create Chart
-          article(id='barchart' chart='chart' style='width:100%; height:400px;')
+          article(id='mypiechart' chart='chart' style='width:100%; height:400px;')
     // Load Script
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js')
     script(type='text/javascript' src='https://www.gstatic.com/charts/loader.js')
@@ -95,5 +95,25 @@ html(lang='en')
       function drawChart() {
         let data = [];
         let poll = #{JSON.stringify(poll)};
-        let header = ['Poll Answer', ''];
+        let header = ['Poll Answer', 'Number of Votes'];
+        data.push(header);
+        poll.answer.forEach(function(item) {
+          let temp = [];
+          temp.push(item.title);
+          temp.push(item.number);
+          data.push(temp);
+        });
+        let chartData = google.visualization.arrayToDataTable(data);
+
+        let options = {
+          title: 'Result',
+          is3D: true
+        };
+
+        let chart = new google.visualization.PieChart(document.getElementById('mypiechart'));
+        chart.draw(chartData, options);
       }
+
+      $(window).resize(function() {
+        drawChart();
+      });

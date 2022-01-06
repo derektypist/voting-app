@@ -106,10 +106,10 @@ html(lang='en')
         })
         let chartData = google.visualization.arrayToDataTable(data)
 
-        let options = {
+        let options = {{
           title: Result
           is3D: true
-        }
+        }}
 
         let chart = new google.visualization.PieChart(document.getElementById('mypiechart'))
         chart.draw(chartData, options)

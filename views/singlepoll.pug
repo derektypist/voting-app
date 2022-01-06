@@ -93,7 +93,7 @@ html(lang='en')
       // Google charts
       google.charts.load('current', {'packages':['corechart']})
       google.charts.setOnLoadCallback(drawChart)
-      function drawChart() {
+      function drawChart() 
         let data = []
         let poll = #{JSON.stringify(poll)}
         let header = ['Poll Answer', 'Number of Votes']
@@ -110,7 +110,7 @@ html(lang='en')
 
         let chart = new google.visualization.PieChart(document.getElementById('mypiechart'))
         chart.draw(chartData, options)
-      }
+      
 
       $(window).resize(function() {
         drawChart()

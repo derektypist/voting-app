@@ -61,4 +61,5 @@ Taken from [Tri Vi](https://github.com/triminhvi).  Accessed from 13 December 20
 - [Facebook for Developers - Share Button](https://developers.facebook.com/docs/plugins/share-button)
 - [Bootstrap](https://www.getbootstrap.com)
 - [Passport](https://www.passportjs.org)
+- [Mongoose](https://mongoosejs.com)
 

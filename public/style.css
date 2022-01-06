@@ -6,6 +6,17 @@ body {
   font-family: "Roboto", Arial, Verdana, sans-serif;
 }
 
+/* Links */
+a {
+  text-decoration: none;
+  color: #009B77;
+}
+
+a:hover {
+  text-decoration: none;
+  color: darkcyan;
+}
+
 /* Navigation */
 .nav-link:hover {
   background-color: purple;

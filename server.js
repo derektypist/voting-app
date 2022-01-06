@@ -46,6 +46,9 @@ let docCount = Poll.countDocuments({}, function(err,count) {
   console.log(count);
 });
 
+if (docCount == 0) {
+  console.log('No documents');
+}
 
 
 // Passport Configuration

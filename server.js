@@ -50,6 +50,8 @@ Poll.countDocuments({}, function(err,count) {
   if (count==0) {
     console.log('No documents!');
     console.log('Creating documents');
+    // Create the documents
+    Poll.create([{title: 'Web Development', answer: [{title:'Front End',number:1},{title:'Back End',number:1}]}]);
   }
 });
 

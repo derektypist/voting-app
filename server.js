@@ -42,9 +42,12 @@ db.on('open', function() {
 const User = require('./models').User;
 const Poll = require('./models').Poll;
 
-Poll.countDocuments({}, function(err,count) {
+// If there are no documents
+if (Poll.countDocuments({}, function(err,count) {
   console.log(count);
-});
+}) == 0) {
+  console.log('No documents');
+}
 
 // Passport Configuration
 require('./config/passport.js')(passport);

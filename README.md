@@ -38,7 +38,7 @@ To add, view or delete polls.
 
 ## Technologies
 
-This project uses Bcrypt, Mongoose, Express, Pug, CSS3, Bootstrap 5.1.3, Font Awesome 5.15.4 and Google Fonts.  Uses iFrame for the Share Button on Facebook.
+This project uses Bcrypt, Mongoose, Express, Pug, CSS3, Bootstrap 5.1.3, Font Awesome 5.15.4, Google Charts and Google Fonts.  Uses iFrame for the Share Button on Facebook.
 
 ## Testing
 

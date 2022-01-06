@@ -52,7 +52,7 @@ This project is on [REPL](https://voting-app.ddxps46.repl.co)
 
 ### Content
 
-Taken from [Tri Vi](https://github.com/triminhvi).  Accessed from 13 December 2021.  Code for Share Button was taken from [Facebook](https://developers.facebook.com/docs/plugins/share-button) (accessed on 16 December 2021).
+Taken from [Tri Vi](https://github.com/triminhvi).  Accessed from 13 December 2021.  Code for Share Button was taken from [Facebook](https://developers.facebook.com/docs/plugins/share-button) (accessed on 16 December 2021).  The use of countDocuments in the Mongoose Documentation.
 
 ### Acknowledgements
 

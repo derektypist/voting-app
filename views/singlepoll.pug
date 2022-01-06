@@ -91,30 +91,30 @@ html(lang='en')
     script(type='text/javascript' src='https://www.gstatic.com/charts/loader.js')
     script(type='text/javascript')
       // Google charts
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+      google.charts.load('current', {'packages':['corechart']})
+      google.charts.setOnLoadCallback(drawChart)
       function drawChart() {
-        let data = [];
-        let poll = #{JSON.stringify(poll)};
-        let header = ['Poll Answer', 'Number of Votes'];
-        data.push(header);
+        let data = []
+        let poll = #{JSON.stringify(poll)}
+        let header = ['Poll Answer', 'Number of Votes']
+        data.push(header)
         poll.answer.forEach(function(item) {
-          let temp = [];
-          temp.push(item.title);
-          temp.push(item.number);
-          data.push(temp);
+          let temp = []
+          temp.push(item.title)
+          temp.push(item.number)
+          data.push(temp)
         });
-        let chartData = google.visualization.arrayToDataTable(data);
+        let chartData = google.visualization.arrayToDataTable(data)
 
         let options = {
           title: 'Result',
           is3D: true
-        };
+        }
 
-        let chart = new google.visualization.PieChart(document.getElementById('mypiechart'));
-        chart.draw(chartData, options);
+        let chart = new google.visualization.PieChart(document.getElementById('mypiechart'))
+        chart.draw(chartData, options)
       }
 
       $(window).resize(function() {
-        drawChart();
-      });
+        drawChart()
+      })

@@ -42,7 +42,9 @@ db.on('open', function() {
 const User = require('./models').User;
 const Poll = require('./models').Poll;
 
-console.log(Poll.countDocuments({}));
+Poll.countDocuments({}, function(err,count) {
+  console.log(count);
+});
 
 // Passport Configuration
 require('./config/passport.js')(passport);

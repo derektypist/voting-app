@@ -42,10 +42,14 @@ db.on('open', function() {
 const User = require('./models').User;
 const Poll = require('./models').Poll;
 
+// Count the number of documents
 Poll.countDocuments({}, function(err,count) {
+  // Display number of documents to the console
   console.log(count);
+  // If there are no documents
   if (count==0) {
     console.log('No documents!');
+    console.log('Creating documents');
   }
 });
 

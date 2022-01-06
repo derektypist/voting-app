@@ -42,13 +42,12 @@ db.on('open', function() {
 const User = require('./models').User;
 const Poll = require('./models').Poll;
 
-let docCount = Poll.countDocuments({}, function(err,count) {
+Poll.countDocuments({}, function(err,count) {
   console.log(count);
+  if (count==0) {
+    console.log('No documents!');
+  }
 });
-
-if (docCount == 0) {
-  console.log('No documents');
-}
 
 
 // Passport Configuration

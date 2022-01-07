@@ -68,8 +68,8 @@ html(lang='en')
                     article(class='form-check')
                       label(class='form-check-label')
                         - let pollAnswerAnswer = poll.answer[i].answer
-                        - let pollAnswerTitle = poll.answer[i].title
-                        input(type='radio' class='form-check-input' name='optionsRadios' id=pollAnswerAnswer value=i) span #{poll.answer[i].title}
+                        input(type='radio' class='form-check-input' name='optionsRadios' id=pollAnswerAnswer value=i)
+                        span #{poll.answer[i].title}
                 input(type='submit' class='btn btn-info' id='voteBtn' value='Vote')
             else
               // If no user
@@ -81,7 +81,8 @@ html(lang='en')
                     article(class='form-check')
                       label(class='form-check-label')
                         - let pollAnswerAnswer = poll.answer[i].answer
-                        input(type='radio' class='form-check-input' name='optionsRadios' id=pollAnswerAnswer value=i) span #{poll.answer[i].title}
+                        input(type='radio' class='form-check-input' name='optionsRadios' id=pollAnswerAnswer value=i)
+                        span #{poll.answer[i].title}
                 input(type='submit' class='btn btn-info' id='voteBtn' value='Vote' disabled)
         article(class='col-md-6 text-center')
           // Create Chart
